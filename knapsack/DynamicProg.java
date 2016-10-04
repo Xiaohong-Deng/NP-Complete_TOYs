@@ -1,3 +1,15 @@
+/* 
+data type for solving 0-1 knapsack problem. Input file must be of
+the following form:
+number if items [whitespace] total size of knapsack
+value of item1 [whitespace] weight of item1
+value of item2 [whitespace] weight of item2
+...
+Output format should be of the following:
+value of the optimal solution
+index of 1st item selected [whitespace] index of 2nd item selected ...
+*/
+
 import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
@@ -5,7 +17,10 @@ import java.util.Scanner;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
 import java.util.*;
-
+/*
+The problem solving model used is Dynamic Programming. Memoization is hard coded to
+enhance the performance
+*/
 public class DynamicProg {
   private Map<List<Integer>, Integer> cache = new HashMap<>();
   private int[] weights;
@@ -36,8 +51,10 @@ public class DynamicProg {
 //  public int getCacheHit() {
 //    return cacheHit;
 //  }
-  
+  //@param number of items, total size of knapsack
+  //@return value of the opt solution
   private int solver(int itemSize, int packSize) {
+    //List object can be used to calculate hashCode, the result is used as Key in hash table
     final List<Integer> itemAndPack = Arrays.asList(itemSize, packSize);
     if (itemSize == 0 || packSize == 0) return 0;
     if (cache.containsKey(itemAndPack)) {
@@ -56,6 +73,7 @@ public class DynamicProg {
     return rv;
   }
   
+  //@return list of items which are selected as opt solution
   public Iterable<Integer> itemList() {
     if (!isSolved) return null;
 //    StdOut.println("Am I called?");
