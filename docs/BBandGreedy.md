@@ -7,10 +7,10 @@ bounding function是计算upper bound的主要方法, 这个[umu page](https://w
 
 反例是W=100, v1=4, w1=2, v2=100, w2=99, v3=1, w3=1
 
-##Greedy as a Heuristic
+## Greedy as a Heuristic
 Greedy经过tuning可以在NP问题上展示出惊人的效率, 而DP由于其exhaustive的本质似乎不能, 尽管DP还有一些我不知道的timing上的蜜汁优化
 
-###Greedy for TSP
+### Greedy for TSP
 你可以用简单的triangle ineuqality证明, euclidean平面下的tsp的最优解是不可能有crossing edge的, 那最优解在circle里找就好了, 这就prune掉了一大堆candidates
 
 这个方法是从一个很厉害的, 上海南洋理工-新加坡南洋理工计算学博士那里偷师来的一个方法, 伪码如下
@@ -30,10 +30,10 @@ for step 3
     add edges (u,i) and (i,v) to T
 
 这和任何fancy的heuristic一样, 是不保证全局最优解的, 需要randomness来跳出local optimal; 问题是我都不知道给定一个order, 这方法一定能给出local optimal? 或者用完greedy后再local search, 那么greedy也就退化成和在B&B for knapsack一样, 成为一个boost
-###Greedy for Graph Coloring
+### Greedy for Graph Coloring
 
-四色定理只适用于planar graph<sup class="reference">[1]</sup>, 即crossing edges之间必有intersection, 给出一个有crossing edge而crossing edge之间没有交点的graph, 也许你能morph它成一个no crossing edge graph, 也许不能.请问给出一个这样的图, 想知道它最终能否morph成一个没有crossing edge的图,这是一个NPC问题吗?
+四色定理只适用于planar graph<sup class="reference">[\[1\]](#1)</sup>, 即crossing edges之间必有intersection, 给出一个有crossing edge而crossing edge之间没有交点的graph, 也许你能morph它成一个no crossing edge graph, 也许不能.请问给出一个这样的图, 想知道它最终能否morph成一个没有crossing edge的图,这是一个NPC问题吗?
 
-##References
+## References
 
-1. Mathematics for Computer Science
+<span id=1>[1]</span> Mathematics for Computer Science
