@@ -32,8 +32,8 @@ for step 3
 这和任何fancy的heuristic一样, 是不保证全局最优解的, 需要randomness来跳出local optimal; 问题是我都不知道给定一个order, 这方法一定能给出local optimal? 或者用完greedy后再local search, 那么greedy也就退化成和在B&B for knapsack一样, 成为一个boost
 ### Greedy for Graph Coloring
 
-四色定理只适用于planar graph<sup class="reference">[\[1\]](#1)</sup>, 即crossing edges之间必有intersection, 给出一个有crossing edge而crossing edge之间没有交点的graph, 也许你能morph它成一个no crossing edge graph, 也许不能.请问给出一个这样的图, 想知道它最终能否morph成一个没有crossing edge的图,这是一个NPC问题吗?
+四色定理只适用于planar graph[^1], 即crossing edges之间必有intersection, 给出一个有crossing edge而crossing edge之间没有交点的graph, 也许你能morph它成一个no crossing edge graph, 也许不能.请问给出一个这样的图, 想知道它最终能否morph成一个没有crossing edge的图,这是一个NPC问题吗?
 
 ## References
 
-<span id=1>[1]</span> Mathematics for Computer Science
+[^1]: Mathematics for Computer Science
